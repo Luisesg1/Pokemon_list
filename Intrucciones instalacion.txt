@@ -1,0 +1,12 @@
+Requisitos previos:
+
+Node.js (versión 10 o superior)
+Angular CLI (versión 5 o superior)
+Pasos:
+
+1.-Abre una terminal o línea de comandos.
+2.-Clona el repositorio del proyecto de Github utilizando el comando git clone https://github.com/<usuario>/<nombre-del-repositorio>.git. Reemplaza <usuario> y <nombre-del-repositorio> por tu nombre de usuario y el nombre del repositorio que clonarás.
+3.-Accede a la carpeta del proyecto con el comando cd <nombre-del-repositorio>.
+4.-Instala las dependencias del proyecto utilizando el gestor de paquetes npm con el comando npm install. Este comando descargará e instalará todas las dependencias del proyecto listadas en el archivo package.json.
+5.-Inicia la aplicación con el comando ng serve. Este comando compilará y ejecutará la aplicación, y estará disponible en la URL http://localhost:4200.
+6.-Abre tu navegador y accede a la URL http://localhost:4200. Ahora deberías poder ver la aplicación y hacer uso de todas sus funcionalidades
