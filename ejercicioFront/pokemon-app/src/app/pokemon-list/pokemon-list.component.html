@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Lista de Pokémons</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokemon-list.component.css">
+  </head>
+  <body>
+    <div class="pokemon-list">
+      <h1 class="pokemon-list__title">Lista de Pokémons</h1>
+      <div class="pokemon-list__search">
+        <label for="searchTerm" class="pokemon-list__search-label">Buscar:</label>
+        <input type="text" id="searchTerm" [(ngModel)]="searchTerm" class="pokemon-list__search-input">
+      </div>
+      <ul class="pokemon-list__items">
+        <li *ngFor="let pokemon of filterPokemonList() | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }" class="pokemon-list__item">
+          <div class="pokemon-list__item-wrapper">
+            <img [src]="pokemon.imageUrl" [alt]="pokemon.name" class="pokemon-list__item-img">
+            <span class="pokemon-list__item-name">{{ pokemon.name }}</span>
+            <div class="pokemon-list__item-types">
+              <span *ngFor="let type of pokemon.types" class="pokemon-list__item-type">{{ type }}</span>
+            </div>
+            <button (click)="pokemon.deleted = true" class="pokemon-list__delete-btn">Eliminar Pokemon</button>
+          </div>
+        </li>
+      </ul>
+      <div class="pokemon-list__pagination">
+        <pagination-controls (pageChange)="currentPage = $event" class="pagination"></pagination-controls>
+      </div>
+      <div class="pokemon-list__sort">
+        <button (click)="sortPokemonList(sortDirection === 'asc' ? 'desc' : 'asc')" class="pokemon-list__sort-btn">
+          Ordenar {{sortDirection === 'asc' ? 'A-Z' : 'Z-A'}}
+        </button>
+        <span *ngIf="sortDirection === 'asc'" class="pokemon-list__sort-direction">(ascendente)</span>
+        <span *ngIf="sortDirection === 'desc'" class="pokemon-list__sort-direction">(descendente)</span>
+      </div>
+    </div>
+  </body>
+</html>
